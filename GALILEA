@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitación Aloha</title>
+
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f3f4f6;
+}
+
+/* HEADER */
+.header{
+    text-align:center;
+    padding:60px 20px;
+    background:linear-gradient(90deg,#f472b6,#a855f7);
+    color:white;
+    border-bottom-left-radius:40px;
+    border-bottom-right-radius:40px;
+}
+
+.main-title{
+    font-family:'Pacifico',cursive;
+    font-size:2.8em;
+    margin:0;
+}
+
+.name{
+    font-family:'Pacifico',cursive;
+    font-size:3.2em;
+    margin:10px 0;
+    animation:latido 2s infinite;
+}
+
+@keyframes latido{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+/* CONTENEDOR */
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    padding:10px;
+}
+
+/* TARJETAS */
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:25px;
+    border:2px dashed #f9a8d4;
+}
+
+/* TITULOS */
+.title{
+    color:#a855f7;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* ITEMS */
+.item{
+    margin:10px 0;
+}
+
+/* BOTONES */
+.btn{
+    display:block;
+    text-align:center;
+    padding:15px;
+    border-radius:50px;
+    background:linear-gradient(90deg,#f472b6,#a855f7);
+    color:white;
+    text-decoration:none;
+    margin-top:15px;
+    cursor:pointer;
+}
+
+/* INPUTS */
+input, select{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+/* FLORES */
+.flower{
+    position:fixed;
+    top:-10px;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{transform:translateY(100vh);}
+}
+
+/* COUNTDOWN */
+.countdown{
+    margin-top:15px;
+    font-weight:bold;
+    color:#a855f7;
+}
+
+/* AUDIO */
+#audioBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#222;
+    color:white;
+    padding:10px 15px;
+    border-radius:50px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="audio" loop>
+    <source src="./HawaiianRollerCoasterRide.mp3" type="audio/mpeg">
+</audio>
+
+<!-- HEADER -->
+<div class="header">
+    <h1 class="main-title">Aloha 🌺</h1>
+    <h2>¡Cumpleaños de!</h2>
+    <h1 class="name">Galilea</h1>
+    <p>🎉 Celebramos 4 añitos 🎉</p>
+</div>
+
+<!-- CONTENIDO -->
+<div class="container">
+
+    <!-- DETALLES -->
+    <div class="card">
+        <div class="title">🌸 DETALLES DEL EVENTO</div>
+
+        <div class="item">📅 <b>Fecha</b><br>Sábado 28 de marzo</div>
+        <div class="item">⏰ <b>Hora</b><br>1:00 PM</div>
+        <div class="item">🏡 <b>Lugar</b><br>Nuestra casa<br>Acajutla, Sonsonate</div>
+        <div class="item">🎉 <b>Temática</b><br>Lilo & Stitch</div>
+        <div class="item">👗 <b>Dress Code</b><br>Ropa playera o floral</div>
+
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <!-- UBICACION + CONFIRMACION -->
+    <div class="card">
+        <div class="title">📍 UBICACIÓN</div>
+        <p>Aca te dejamos la ubicacion</p>
+        <a href="#" class="btn">Ver en Google Maps 🗺️</a>
+
+        <hr style="margin:20px 0;">
+
+        <div class="title">✍️ CONFIRMAR ASISTENCIA</div>
+
+        <input id="name" placeholder="Tu Nombre Completo">
+        <select id="people">
+            <option>Asistiré solo yo</option>
+            <option>2 personas</option>
+            <option>3 personas</option>
+        </select>
+
+        <div class="btn" onclick="wa()">Confirmar por WhatsApp 💬</div>
+    </div>
+
+</div>
+
+<!-- BOTON AUDIO -->
+<div id="audioBtn">🎶 Música</div>
+
+<script>
+// AUDIO
+const audio = document.getElementById("audio");
+const btn = document.getElementById("audioBtn");
+let playing=false;
+
+btn.onclick=()=>{
+    if(!playing){
+        audio.play();
+        btn.innerHTML="🔊 ON";
+        playing=true;
+    }else{
+        audio.pause();
+        btn.innerHTML="🎶 Música";
+        playing=false;
+    }
+}
+
+// WHATSAPP
+function wa(){
+    let name=document.getElementById("name").value;
+    let people=document.getElementById("people").value;
+
+    if(name==""){alert("Escribe tu nombre");return;}
+
+    let msg="🌺 Aloha! Soy "+name+" y confirmo asistencia ("+people+") 🎉";
+    window.open("https://wa.me/70499761?text="+encodeURIComponent(msg));
+}
+
+// FLORES
+setInterval(()=>{
+    let f=document.createElement("div");
+    f.className="flower";
+    f.innerHTML="🌸";
+    f.style.left=Math.random()*100+"%";
+    f.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),8000);
+},300);
+
+// COUNTDOWN
+const targetDate = new Date("March 28, 2026 13:00:00").getTime();
+
+setInterval(()=>{
+    let now = new Date().getTime();
+    let diff = targetDate - now;
+
+    let d = Math.floor(diff/(1000*60*60*24));
+    let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    let m = Math.floor((diff%(1000*60*60))/(1000*60));
+
+    document.getElementById("countdown").innerHTML =
+        "⏳ Faltan "+d+" días "+h+"h "+m+"m";
+},1000);
+</script>
+
+</body>
+</html>
