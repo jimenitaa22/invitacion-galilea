@@ -3,31 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Aloha! Invitacion Cumpleaños de GALILEA RAMOS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- 1. VARIABLES GENERALES --- */
-        :root {
-              --blue-header: #a855f7;   /* morado bonito */
-              --blue-light: #d8b4fe;    /* lila suave */
-              --coral: #f472b6;         /* rosado */
-              --text-dark: #4b2e2e;     /* café suave */
-              --card-border: #f9a8d4;   /* rosado clarito *
-        }
-
-        body {
-            font-family: 'Quicksand', …
-[7:45, 21/3/2026] Mimi: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Aloha! Invitación Cumpleaños de GALILEA RAMOS</title>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. VARIABLES GENERALES --- */
         :root {
               --blue-header: #a855f7;
               --blue-light: #d8b4fe;
@@ -57,7 +36,6 @@
             z-index: -1;
         }
 
-        /* --- 2. ENCABEZADO (HEADER) --- */
         .main-header {
             background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%);
             color: white;
@@ -81,31 +59,16 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .sub-title {
-            font-weight: 700;
-            margin: 10px 0 5px 0;
-            font-size: 1.2em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
         .name-title {
             font-family: 'Lobster', cursive;
             font-size: 4em;
-            margin: 0;
+            margin: 10px 0;
             line-height: 1.1;
         }
 
-        .subtitle-text {
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
         .photo-wrapper {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             margin: 20px auto;
             border-radius: 50%;
             border: 5px solid white;
@@ -119,15 +82,6 @@
             object-fit: cover;
         }
 
-        .side-text {
-            font-weight: 700;
-            font-size: 0.9em;
-            background: rgba(255,255,255,0.2);
-            padding: 5px 15px;
-            border-radius: 15px;
-        }
-
-        /* --- 3. ESTRUCTURA DE TARJETAS --- */
         .cards-container {
             max-width: 1000px;
             margin: -50px auto 50px auto; 
@@ -159,7 +113,6 @@
         .details-list {
             list-style: none;
             padding: 0;
-            margin: 0;
         }
 
         .details-list li {
@@ -172,15 +125,8 @@
             content: '🌸'; 
             position: absolute;
             left: 0;
-            font-size: 1.2em;
         }
         
-        .details-list strong {
-            color: var(--coral);
-            display: block;
-            font-size: 0.9em;
-        }
-
         .btn {
             display: block;
             width: 100%;
@@ -194,11 +140,9 @@
             border: none;
             cursor: pointer;
             box-sizing: border-box;
-            transition: transform 0.2s;
             margin-top: 10px;
         }
 
-        .btn:hover { transform: scale(1.02); }
         .btn-map { background: var(--blue-header); }
 
         .form-input, .form-select {
@@ -210,7 +154,6 @@
             box-sizing: border-box;
         }
 
-        /* --- 4. CONTROLES AUDIO --- */
         #audioControls {
             position: fixed;
             bottom: 20px;
@@ -221,9 +164,6 @@
             border-radius: 50px;
             cursor: pointer;
             z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
             border: 2px solid white;
         }
 
@@ -235,21 +175,18 @@
 <body>
 
     <audio id="fiestaAudio" loop>
-        <source src="fiesta.mp3.mpeg" type="audio/mpeg">
+        <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
     <header class="main-header">
         <div class="header-content">
-            <h1 class="main-title">Aloha!</h1>
-            <h2 class="sub-title">¡CUMPLEAÑOS DE!</h2>
+            <h1 class="main-title">¡Aloha!</h1>
+            <h2 style="font-size: 1.2em; letter-spacing: 2px;">CUMPLEAÑOS DE</h2>
             <h1 class="name-title">Galilea Ramos</h1>
-            <p class="subtitle-text">CELEBRAMOS 4 AÑOS</p>
+            <p>CELEBRAMOS 4 AÑOS</p>
             
-            <div class="photo-section">
-                <div class="photo-wrapper">
-                    <img src="gali.png.png" alt="Galilea" class="profile-pic">
-                </div>
-                <span class="side-text" style="color: #fff;">LILO & STITCH</span>
+            <div class="photo-wrapper">
+                <img src="gali.png" alt="Galilea" class="profile-pic">
             </div>
         </div>
     </header>
@@ -258,19 +195,18 @@
         <section class="card">
             <h3 class="card-title">🌺 Detalles del Evento</h3>
             <ul class="details-list">
-                <li><strong>📅 Fecha</strong> Sábado 28 de marzo</li>
-                <li><strong>⏰ Hora</strong> 1:30 PM</li>
-                <li><strong>🏖️ Lugar</strong> Nuestra casita<br>Acajutla, Sonsonate</li>
-                <li><strong>🎭 Temática</strong> Aloha / Lilo & Stitch</li>
-                <li><strong>👚 Dress Code</strong> Ropa playera o floral.</li>
+                <li><strong>📅 Fecha:</strong> Sábado 28 de marzo</li>
+                <li><strong>⏰ Hora:</strong> 1:30 PM</li>
+                <li><strong>🏖️ Lugar:</strong> Nuestra casita, Acajutla</li>
+                <li><strong>🎭 Temática:</strong> Lilo & Stitch</li>
+                <li><strong>👚 Vestimenta:</strong> Ropa playera / floral</li>
             </ul>
         </section>
 
         <div class="right-column">
             <section class="card">
                 <h3 class="card-title">📍 Ubicación</h3>
-                <p>Haz clic para ver cómo llegar:</p>
-                <a href="https://maps.app.goo.gl/9ZpZJ" target="_blank" class="btn btn-map">Ver en Google Maps 🗺️</a>
+                <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ver en Google Maps 🗺️</a>
             </section>
 
             <section class="card">
@@ -287,15 +223,16 @@
         </div>
     </main>
 
-    <div id="audioControls"><span>🎶</span> Música OFF</div>
+    <div id="audioControls">🎶 Música OFF</div>
 
     <script>
         function sendToWhatsapp() {
             const name = document.getElementById('guestName').value;
             const count = document.getElementById('guestCount').value;
+            const number = "50377426707"; // Tu número corregido
             if(name.trim() === "") { alert("🌺 ¡Por favor escribe tu nombre!"); return; }
             const message = ¡Aloha! 🌺 Soy *${name}*. Confirmo mi asistencia (${count} personas) al cumple de Gali. ¡Nos vemos!;
-            const url = https://wa.me/50370499761?text=${encodeURIComponent(message)};
+            const url = https://wa.me/${number}?text=${encodeURIComponent(message)};
             window.open(url, '_blank');
         }
 
@@ -305,17 +242,17 @@
 
         document.addEventListener('click', function start() {
             audio.play().then(() => {
-                isPlaying = true; btn.innerHTML = '<span>🔊</span> Música ON';
-            });
+                isPlaying = true; btn.innerHTML = '🔊 Música ON';
+            }).catch(() => console.log("Esperando interacción"));
             document.removeEventListener('click', start);
         }, { once: true });
 
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (isPlaying) {
-                audio.pause(); isPlaying = false; btn.innerHTML = '<span>🔇</span> Música OFF';
+                audio.pause(); isPlaying = false; btn.innerHTML = '🔇 Música OFF';
             } else {
-                audio.play(); isPlaying = true; btn.innerHTML = '<span>🔊</span> Música ON';
+                audio.play(); isPlaying = true; btn.innerHTML = '🔊 Música ON';
             }
         });
     </script>
