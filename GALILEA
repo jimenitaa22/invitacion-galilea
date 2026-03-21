@@ -1,245 +1,267 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invitación Aloha</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Aloha! Invitación Cumpleaños de GALILEA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --blue-header: #a855f7;
+            --blue-light: #d8b4fe;
+            --coral: #f472b6;
+            --text-dark: #4b2e2e;
+            --card-border: #f9a8d4;
+        }
 
-<!-- FUENTES -->
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff0f6;
+            background-image: url('fondo-patron.png'); 
+            background-size: 300px; 
+            background-repeat: repeat;
+            position: relative;
+            overflow-x: hidden; 
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#f3f4f6;
-}
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85); 
+            z-index: -1;
+        }
 
-/* HEADER */
-.header{
-    text-align:center;
-    padding:60px 20px;
-    background:linear-gradient(90deg,#f472b6,#a855f7);
-    color:white;
-    border-bottom-left-radius:40px;
-    border-bottom-right-radius:40px;
-}
+        .main-header {
+            background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%);
+            color: white;
+            text-align: center;
+            padding-top: 40px;
+            position: relative;
+            padding-bottom: 120px; 
+        }
 
-.main-title{
-    font-family:'Pacifico',cursive;
-    font-size:2.8em;
-    margin:0;
-}
+        .header-transition-mask {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, #ffffff 20%, rgba(255,255,255,0) 100%);
+            z-index: 1;
+        }
 
-.name{
-    font-family:'Pacifico',cursive;
-    font-size:3.2em;
-    margin:10px 0;
-    animation:latido 2s infinite;
-}
+        .header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-@keyframes latido{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.1);}
-    100%{transform:scale(1);}
-}
+        .main-title { font-family: 'Lobster', cursive; font-size: 3.5em; margin:0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2);}
+        .sub-title { font-weight:700; margin:10px 0 5px 0; font-size:1.2em; letter-spacing:2px; text-transform:uppercase;}
+        .name-title { font-family:'Lobster', cursive; font-size:4em; margin:0; line-height:1.1; text-shadow:3px 3px 0 rgba(0,0,0,0.1);}
+        .subtitle-text { font-weight:600; letter-spacing:1px; margin-bottom:30px; opacity:0.9;}
 
-/* CONTENEDOR */
-.container{
-    max-width:1000px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-    padding:10px;
-}
+        .cards-container {
+            max-width: 1000px;
+            margin: -60px auto 50px auto; 
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 25px;
+        }
 
-/* TARJETAS */
-.card{
-    background:#fff;
-    border-radius:20px;
-    padding:25px;
-    border:2px dashed #f9a8d4;
-}
+        .card {
+            background: #fff7fb;
+            border-radius: 25px;
+            border: 2px dashed var(--card-border);
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: left;
+        }
 
-/* TITULOS */
-.title{
-    color:#a855f7;
-    font-weight:600;
-    margin-bottom:10px;
-}
+        .card-title {
+            color: var(--blue-header);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
 
-/* ITEMS */
-.item{
-    margin:10px 0;
-}
+        .details-list { list-style: none; padding:0; margin:0;}
+        .details-list li { margin-bottom:15px; padding-left:35px; position:relative; line-height:1.5; font-size:1.05em;}
+        .details-list li::before { content:'🌸'; position:absolute; left:0; top:2px; font-size:1.2em;}
+        .details-list strong { color: var(--coral); display:block; text-transform:uppercase; font-size:0.9em;}
 
-/* BOTONES */
-.btn{
-    display:block;
-    text-align:center;
-    padding:15px;
-    border-radius:50px;
-    background:linear-gradient(90deg,#f472b6,#a855f7);
-    color:white;
-    text-decoration:none;
-    margin-top:15px;
-    cursor:pointer;
-}
+        .right-column { display:flex; flex-direction: column; gap:25px;}
 
-/* INPUTS */
-input, select{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border-radius:10px;
-    border:1px solid #ccc;
-}
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #f472b6, #c084fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 1em;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: scale(1.02); background-color:#ff5040;}
+        .btn-map { background-color: var(--blue-header); margin-bottom:10px;}
 
-/* FLORES */
-.flower{
-    position:fixed;
-    top:-10px;
-    font-size:20px;
-    animation:fall linear infinite;
-}
+        .form-input, .form-select {
+            width:100%;
+            padding:12px;
+            margin:8px 0;
+            border:1px solid #ccc;
+            border-radius:10px;
+            font-family:'Quicksand',sans-serif;
+            font-size:1em;
+            box-sizing:border-box;
+            background-color:#f9f9f9;
+        }
 
-@keyframes fall{
-    to{transform:translateY(100vh);}
-}
+        .bottom-decoration { display:flex; justify-content:center; gap:20px; padding:20px; opacity:0.8; margin-bottom:20px;}
+        .bottom-decoration span { font-size:2em; }
 
-/* COUNTDOWN */
-.countdown{
-    margin-top:15px;
-    font-weight:bold;
-    color:#a855f7;
-}
+        #audioControls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #222;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85em;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-/* AUDIO */
-#audioBtn{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#222;
-    color:white;
-    padding:10px 15px;
-    border-radius:50px;
-    cursor:pointer;
-}
-</style>
+        @media (min-width:768px){
+            .cards-container { grid-template-columns: 1.2fr 1fr; align-items:start;}
+            .main-title { font-size:4.5em;}
+            .name-title { font-size:5em;}
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- AUDIO -->
-<audio id="audio" loop>
-    <source src="./HawaiianRollerCoasterRide.mp3" type="audio/mpeg">
-</audio>
+    <!-- AUDIO -->
+    <audio id="fiestaAudio" loop>
+        <source src="HawaiianRollerCoasterRide.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- HEADER -->
-<div class="header">
-    <h1 class="main-title">Aloha 🌺</h1>
-    <h2>¡Cumpleaños de!</h2>
-    <h1 class="name">Galilea</h1>
-    <p>🎉 Celebramos 4 añitos 🎉</p>
-</div>
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="main-title">Aloha!</h1>
+            <h2 class="sub-title">¡CUMPLEAÑOS DE!</h2>
+            <h1 class="name-title">Galilea Ramos</h1>
+            <p class="subtitle-text">CELEBRAMOS 4 AÑOS</p>
+        </div>
+        <div class="header-transition-mask"></div>
+    </header>
 
-<!-- CONTENIDO -->
-<div class="container">
+    <main class="cards-container">
+        <section class="card details-card">
+            <h3 class="card-title">🌺 Detalles del Evento</h3>
+            <ul class="details-list">
+                <li><strong>📅 Fecha</strong> Sábado 28 de marzo</li>
+                <li><strong>⏰ Hora</strong> 1:00 PM</li>
+                <li><strong>🏖️ Lugar</strong> nuestra casa<br><span style="font-size:0.9em; color:#666;">Acajutla, Sonsonate</span></li>
+                <li><strong>🎭 Temática</strong> Lilo & Stitch</li>
+                <li><strong>👚 Dress Code</strong> Ropa playera o floral.</li>
+            </ul>
+        </section>
 
-    <!-- DETALLES -->
-    <div class="card">
-        <div class="title">🌸 DETALLES DEL EVENTO</div>
+        <div class="right-column">
+            <section class="card info-card">
+                <h3 class="card-title">📍 Ubicación</h3>
+                <p>Aca te dejamos la ubicacion</p>
+                <a href="https://maps.app.goo.gl/W7rz8CH95HfYZyyNA?g_st=ic" target="_blank" class="btn btn-map">Ver en Google Maps 🗺️</a>
+            </section>
 
-        <div class="item">📅 <b>Fecha</b><br>Sábado 28 de marzo</div>
-        <div class="item">⏰ <b>Hora</b><br>1:00 PM</div>
-        <div class="item">🏡 <b>Lugar</b><br>Nuestra casa<br>Acajutla, Sonsonate</div>
-        <div class="item">🎉 <b>Temática</b><br>Lilo & Stitch</div>
-        <div class="item">👗 <b>Dress Code</b><br>Ropa playera o floral</div>
+            <section class="card rsvp-card">
+                <h3 class="card-title">✍️ Confirmar Asistencia</h3>
+                <input type="text" id="guestName" placeholder="Tu Nombre Completo" class="form-input">
+                <select id="guestCount" class="form-select">
+                    <option value="1">Asistiré solo yo</option>
+                    <option value="2">Vamos 2 personas</option>
+                    <option value="3">Vamos 3 personas</option>
+                </select>
+                <button onclick="sendToWhatsapp()" class="btn">Confirmar por WhatsApp 💬</button>
+            </section>
+        </div>
+    </main>
 
-        <div class="countdown" id="countdown"></div>
+    <div class="bottom-decoration">
+         <span>🌺</span><span>🌺</span><span>🌺</span>
     </div>
 
-    <!-- UBICACION + CONFIRMACION -->
-    <div class="card">
-        <div class="title">📍 UBICACIÓN</div>
-        <p>Aca te dejamos la ubicacion</p>
-        <a href="#" class="btn">Ver en Google Maps 🗺️</a>
+    <footer style="text-align:center; font-size:0.7em; color:#888; padding-bottom:80px; position:relative; z-index:10;">
+        Jimena Ramos ®
+    </footer>
 
-        <hr style="margin:20px 0;">
+    <div id="audioControls"><span>🎶</span> Tocar música</div>
 
-        <div class="title">✍️ CONFIRMAR ASISTENCIA</div>
+    <script>
+        function sendToWhatsapp() {
+            const name = document.getElementById('guestName').value;
+            const select = document.getElementById('guestCount');
+            const count = select.options[select.selectedIndex].text;
+            if(name.trim() === "") { alert("🌺 ¡Por favor escribe tu nombre!"); return; }
+            const message = "¡Aloha!  Soy *" + name + "*. Quiero confirmar mi asistencia al cumple de Gali " + count + ". ¡Nos vemos ahí!";
+            const url = `https://wa.me/${70499761}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
 
-        <input id="name" placeholder="Tu Nombre Completo">
-        <select id="people">
-            <option>Asistiré solo yo</option>
-            <option>2 personas</option>
-            <option>3 personas</option>
-        </select>
+        const audio = document.getElementById('fiestaAudio');
+        const btn = document.getElementById('audioControls');
+        let isPlaying = false;
 
-        <div class="btn" onclick="wa()">Confirmar por WhatsApp 💬</div>
-    </div>
-
-</div>
-
-<!-- BOTON AUDIO -->
-<div id="audioBtn">🎶 Música</div>
-
-<script>
-// AUDIO
-const audio = document.getElementById("audio");
-const btn = document.getElementById("audioBtn");
-let playing=false;
-
-btn.onclick=()=>{
-    if(!playing){
-        audio.play();
-        btn.innerHTML="🔊 ON";
-        playing=true;
-    }else{
-        audio.pause();
-        btn.innerHTML="🎶 Música";
-        playing=false;
-    }
-}
-
-// WHATSAPP
-function wa(){
-    let name=document.getElementById("name").value;
-    let people=document.getElementById("people").value;
-
-    if(name==""){alert("Escribe tu nombre");return;}
-
-    let msg="🌺 Aloha! Soy "+name+" y confirmo asistencia ("+people+") 🎉";
-    window.open("https://wa.me/70499761?text="+encodeURIComponent(msg));
-}
-
-// FLORES
-setInterval(()=>{
-    let f=document.createElement("div");
-    f.className="flower";
-    f.innerHTML="🌸";
-    f.style.left=Math.random()*100+"%";
-    f.style.animationDuration=(3+Math.random()*5)+"s";
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(),8000);
-},300);
-
-// COUNTDOWN
-const targetDate = new Date("March 28, 2026 13:00:00").getTime();
-
-setInterval(()=>{
-    let now = new Date().getTime();
-    let diff = targetDate - now;
-
-    let d = Math.floor(diff/(1000*60*60*24));
-    let h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    let m = Math.floor((diff%(1000*60*60))/(1000*60));
-
-    document.getElementById("countdown").innerHTML =
-        "⏳ Faltan "+d+" días "+h+"h "+m+"m";
-},1000);
-</script>
-
+        btn.addEventListener('click', async () => {
+            try {
+                if(!isPlaying){
+                    await audio.play();
+                    isPlaying = true;
+                    btn.innerHTML = '<span>🔊</span> Música ON';
+                } else {
+                    audio.pause();
+                    isPlaying = false;
+                    btn.innerHTML = '<span>🎶</span> Tocar música';
+                }
+            } catch(err){
+                alert("No se pudo reproducir el audio. Revisa el archivo MP3 y la ruta.");
+                console.error(err);
+            }
+        });
+    </script>
 </body>
 </html>
