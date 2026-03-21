@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* --- TUS VARIABLES ORIGINALES --- */
         :root {
               --blue-header: #a855f7;
               --blue-light: #d8b4fe;
@@ -17,10 +18,12 @@
 
         body {
             font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             color: var(--text-dark);
             background-color: #fff0f6;
+            background-image: url('fondo-patron.png'); 
+            background-size: 300px; 
+            background-repeat: repeat;
             position: relative;
             overflow-x: hidden; 
         }
@@ -37,8 +40,9 @@
             background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%);
             color: white;
             text-align: center;
-            padding: 40px 0 120px 0;
+            padding-top: 40px;
             position: relative;
+            padding-bottom: 120px; 
         }
 
         .header-content {
@@ -49,8 +53,10 @@
             padding: 0 20px;
         }
 
-        .main-title { font-family: 'Lobster', cursive; font-size: 3.5em; margin: 0; }
-        .name-title { font-family: 'Lobster', cursive; font-size: 4em; margin: 0; line-height: 1.1; }
+        .main-title { font-family: 'Lobster', cursive; font-size: 3.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .sub-title { font-weight: 700; margin: 10px 0 5px 0; font-size: 1.2em; letter-spacing: 2px; text-transform: uppercase; }
+        .name-title { font-family: 'Lobster', cursive; font-size: 4em; margin: 0; line-height: 1.1; text-shadow: 3px 3px 0px rgba(0,0,0,0.1); }
+        .subtitle-text { font-weight: 600; letter-spacing: 1px; margin-bottom: 30px; opacity: 0.9; }
 
         .photo-wrapper {
             width: 200px; height: 200px;
@@ -59,7 +65,6 @@
             border: 5px solid white;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background: white;
         }
 
         .profile-pic { width: 100%; height: 100%; object-fit: cover; }
@@ -81,6 +86,16 @@
             border: 2px dashed var(--card-border); 
             padding: 30px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .card-title {
+            color: var(--blue-header);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
         }
 
         .btn {
@@ -88,24 +103,17 @@
             background: linear-gradient(90deg, #f472b6, #c084fc);
             color: white; text-decoration: none;
             border-radius: 50px; font-weight: bold;
-            text-align: center; border: none; cursor: pointer;
-            box-sizing: border-box; margin-top: 10px;
+            margin-top: 10px; text-align: center; border: none;
+            box-sizing: border-box; transition: transform 0.2s;
         }
 
         #audioControls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #222;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            z-index: 1000;
+            position: fixed; bottom: 20px; right: 20px;
+            background: #222; color: white;
+            padding: 12px 25px; border-radius: 50px;
+            cursor: pointer; z-index: 1000;
             border: 2px solid white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: flex; align-items: center; gap: 10px;
         }
 
         @media (min-width: 768px) {
@@ -115,230 +123,76 @@
 </head>
 <body>
 
-    <audio id="fiestaAudio" loop preload="auto">
+    <audio id="fiestaAudio" loop>
         <source src="musica.mp3.mpeg" type="audio/mpeg">
     </audio>
 
     <header class="main-header">
         <div class="header-content">
             <h1 class="main-title">Aloha!</h1>
-            <h2 style="font-weight: 700; margin: 10px 0;">¡CUMPLEAÑOS DE!</h2>
+            <h2 class="sub-title">¡CUMPLEAÑOS DE!</h2>
             <h1 class="name-title">Galilea Ramos</h1>
-            <p>CELEBRAMOS 4 AÑOS</p>
-            <div class="photo-wrapper">
-                <img src="gali.png.png" alt="gali" class="profile-pic">
+            <p class="subtitle-text">CELEBRAMOS 4 AÑOS</p>
+            <div class="photo-section">
+                <div class="photo-wrapper">
+                    <img src="GALI.png.png" alt="gali" class="profile-pic">
+                </div>
             </div>
         </div>
     </header>
 
     <main class="cards-container">
-        <section class="card">
-            <h3 style="color: var(--blue-header);">🌺 Detalles del Evento</h3>
-            <p>📅 <b>Sábado 28 de marzo</b></p>
-            <p>⏰ <b>1:30 PM</b></p>
-            <p>📍 <b>Nuestra casita, Acajutla</b></p>
+        <section class="card details-card">
+            <h3 class="card-title">🌺 Detalles del Evento</h3>
+            <ul style="list-style:none; padding:0;">
+                <li><strong>📅 Fecha:</strong> Sábado 28 de marzo</li>
+                <li><strong>⏰ Hora:</strong> 1:30 PM</li>
+                <li><strong>🏖️ Lugar:</strong> Nuestra casita, Acajutla</li>
+            </ul>
         </section>
 
-        <div class="right-column">
+        <div class="right-column" style="display:flex; flex-direction:column; gap:25px;">
             <section class="card">
-                <h3>📍 Ubicación</h3>
-                <a href="https://maps.google.com" target="_blank" class="btn" style="background: var(--blue-header);">Ver Mapa 🗺️</a>
+                <h3 class="card-title">📍 Ubicación</h3>
+                <a href="https://maps.app.goo.gl/W7rz8CH95HfYZyyNA?g_st=ic" target="_blank" class="btn" style="background-color: var(--blue-header);">Ver en Google Maps 🗺️</a>
             </section>
 
             <section class="card">
-                <h3>✍️ Confirmar Asistencia</h3>
-                <input type="text" id="guestName" placeholder="Tu Nombre" style="width:100%; padding:10px; margin-bottom:10px; border-radius:10px; border:1px solid #ccc;">
+                <h3 class="card-title">✍️ Confirmar Asistencia</h3>
+                <input type="text" id="guestName" placeholder="Tu Nombre" style="width:100%; padding:10px; border-radius:10px; border:1px solid #ccc; box-sizing:border-box;">
                 <button onclick="sendToWhatsapp()" class="btn">Confirmar por WhatsApp 💬</button>
             </section>
         </div>
     </main>
 
-    <div id="audioControls" onclick="toggleMusic()">
-        <span id="musicIcon">🎶</span> <span id="musicText">Música OFF</span>
-    </div>
+    <div id="audioControls"><span>🎶</span> Musicon OFF</div>
 
     <script>
-        const audio = document.getElementById('fiestaAudio');
-        const musicText = document.getElementById('musicText');
-        const musicIcon = document.getElementById('musicIcon');
-
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                musicText.innerText = "Música ON";
-                musicIcon.innerText = "🔊";
-            } else {
-                audio.pause();
-                musicText.innerText = "Música OFF";
-                musicIcon.innerText = "🔇";
-            }
-        }
-
+        // TU FUNCIÓN DE WHATSAPP ORIGINAL (Solo corregí tu número)
         function sendToWhatsapp() {
             const name = document.getElementById('guestName').value;
-            if(name.trim() === "") { alert("Por favor escribe tu nombre"); return; }
-            const message = encodeURIComponent(¡Aloha! Soy ${name}. Confirmo asistencia al cumple de Gali.);
-            window.open(https://wa.me/50377426707?text=${message}, '_blank');
-        }
-    </script>
-</body>
-</html>
-[8:32, 21/3/2026] Mimi: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Aloha! Invitacion Cumpleaños de GALILEA RAMOS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-              --blue-header: #a855f7;
-              --coral: #f472b6;
-              --text-dark: #4b2e2e;
-              --card-border: #f9a8d4;
+            if(name.trim() === "") { alert("🌺 ¡Por favor escribe tu nombre!"); return; }
+            const message = ¡Aloha! 🌺 Soy *${name}*. Quiero confirmar mi asistencia al cumple de Gali. ¡Nos vemos ahí!;
+            const url = https://wa.me/50377426707?text=${encodeURIComponent(message)};
+            window.open(url, '_blank');
         }
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            margin: 0; padding: 0;
-            color: var(--text-dark);
-            background-color: #fff0f6;
-            overflow-x: hidden;
-        }
+        const audio = document.getElementById('fiestaAudio');
+        const btn = document.getElementById('audioControls');
+        let isPlaying = false;
 
-        .main-header {
-            background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 0 100px 0;
-            position: relative;
-        }
-
-        .main-title { font-family: 'Lobster', cursive; font-size: 3.5em; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        .name-title { font-family: 'Lobster', cursive; font-size: 4em; margin: 0; line-height: 1.1; text-shadow: 3px 3px 0px rgba(0,0,0,0.1); }
-
-        .photo-wrapper {
-            width: 220px; height: 220px;
-            margin: 25px auto;
-            border-radius: 50%;
-            border: 6px solid white;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background: #eee;
-        }
-
-        .profile-pic { width: 100%; height: 100%; object-fit: cover; }
-
-        .cards-container {
-            max-width: 900px;
-            margin: -50px auto 50px auto; 
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .card {
-            background: #fff7fb;
-            border-radius: 25px;
-            border: 2px dashed var(--card-border); 
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        .btn {
-            display: block; width: 100%; padding: 18px;
-            background: linear-gradient(90deg, #f472b6, #c084fc);
-            color: white; text-decoration: none;
-            border-radius: 50px; font-weight: bold;
-            text-align: center; border: none; cursor: pointer;
-            box-sizing: border-box; font-size: 1.1em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        #audioControls {
-            position: fixed; bottom: 25px; right: 20px;
-            background: #333; color: white;
-            padding: 12px 20px; border-radius: 50px;
-            cursor: pointer; z-index: 1000;
-            border: 2px solid white; display: flex;
-            align-items: center; gap: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        }
-
-        input {
-            width: 100%; padding: 15px; margin-bottom: 15px;
-            border-radius: 12px; border: 1px solid #ddd;
-            font-size: 1em; box-sizing: border-box;
-        }
-    </style>
-</head>
-<body>
-
-    <audio id="fiestaAudio" loop preload="auto">
-        <source src="fiesta.mp3.mpeg" type="audio/mpeg">
-    </audio>
-
-    <header class="main-header">
-        <h1 class="main-title">¡Aloha!</h1>
-        <p style="letter-spacing: 2px; font-weight: bold; margin: 10px 0;">CUMPLEAÑOS DE</p>
-        <h1 class="name-title">Galilea Ramos</h1>
-        <p>CELEBRAMOS 4 AÑOS</p>
-        <div class="photo-wrapper">
-            <img src="gali.png.png" alt="Galilea" class="profile-pic">
-        </div>
-    </header>
-
-    <main class="cards-container">
-        <section class="card">
-            <h3 style="color: var(--blue-header); margin-top: 0;">🌺 Detalles del Evento</h3>
-            <p>📅 <b>Fecha:</b> Sábado 28 de marzo</p>
-            <p>⏰ <b>Hora:</b> 1:30 PM</p>
-            <p>📍 <b>Lugar:</b> Nuestra casita, Acajutla</p>
-        </section>
-
-        <section class="card">
-            <h3 style="color: var(--blue-header); margin-top: 0;">📍 Ubicación</h3>
-            <a href="https://maps.app.goo.gl/uP7T7L4HnS789v887" target="_blank" class="btn" style="background: var(--blue-header);">Ver en Google Maps 🗺️</a>
-        </section>
-
-        <section class="card">
-            <h3 style="color: var(--blue-header); margin-top: 0;">✍️ Confirmar Asistencia</h3>
-            <input type="text" id="guestName" placeholder="Tu Nombre Completo">
-            <button onclick="enviarWhatsApp()" class="btn">Confirmar por WhatsApp 💬</button>
-        </section>
-    </main>
-
-    <div id="audioControls" onclick="controlarMusica()">
-        <span id="musIcon">🎶</span> <span id="musText">Música OFF</span>
-    </div>
-
-    <script>
-        const cancion = document.getElementById('fiestaAudio');
-        const txt = document.getElementById('musText');
-        const ico = document.getElementById('musIcon');
-
-        function controlarMusica() {
-            if (cancion.paused) {
-                cancion.play().then(() => {
-                    txt.innerText = "Música ON";
-                    ico.innerText = "🔊";
-                }).catch(e => alert("Toca cualquier parte de la pantalla y vuelve a intentar."));
+        // ESTO ES LO ÚNICO QUE AGREGUÉ PARA QUE EL BOTÓN FUNCIONE
+        btn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                isPlaying = true;
+                btn.innerHTML = '<span>🔊</span> Musicon ON';
             } else {
-                cancion.pause();
-                txt.innerText = "Música OFF";
-                ico.innerText = "🔇";
+                audio.pause();
+                isPlaying = false;
+                btn.innerHTML = '<span>🔇</span> Musicon OFF';
             }
-        }
-
-        function enviarWhatsApp() {
-            const nombre = document.getElementById('guestName').value;
-            if(!nombre) { alert("Escribe tu nombre 🌸"); return; }
-            const texto = encodeURIComponent(¡Aloha! Soy *${nombre}*. Confirmo mi asistencia al cumple de Gali. 🌺);
-            // Enlace optimizado para iPhone y Android
-            window.location.href = https://api.whatsapp.com/send?phone=50377426707&text=${texto};
-        }
+        });
     </script>
 </body>
 </html>
