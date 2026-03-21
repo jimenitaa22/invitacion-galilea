@@ -13,7 +13,7 @@
               --blue-light: #d8b4fe;    /* lila suave */
               --coral: #f472b6;         /* rosado */
               --text-dark: #4b2e2e;     /* café suave */
-              --card-border: #f9a8d4;   /* rosado clarito *
+              --card-border: #f9a8d4;   /* rosado clarito */
         }
 
         body {
@@ -273,7 +273,7 @@
 <body>
 
     <audio id="fiestaAudio" loop>
-        <source src="musica.mp3" type="audio/mpeg">
+        <source src="lilo.mp3" type="audio/mpeg">
     </audio>
 
     <header class="main-header">
@@ -283,16 +283,10 @@
             <h1 class="name-title">Galilea Ramos</h1>
             <p class="subtitle-text">CELEBRAMOS 4 AÑOS</p>
             
-            <div class="photo-section">
-              3
-                <div class="photo-wrapper">
-                    <img src="gali.png" alt="gali" class="profile-pic">
-                </div>
-                <span class="side-text" style="color: #fff;">LILO & STITCH</span>
-            </div>
+           
         </div>
         
-       
+    
         <div class="header-transition-mask"></div>
     </header>
 
@@ -303,7 +297,7 @@
             <ul class="details-list">
                 <li><strong>📅 Fecha</strong> Sábado 28 de marzo</li>
                 <li><strong>⏰ Hora</strong> 1:00 PM</li>
-                <li><strong>🏖️ Lugar</strong> nuestra casita<br><span style="font-size:0.9em; color:#666;">Acajutla, Sonsonate</span></li>
+                <li><strong>🏖️ Lugar</strong> nuestra casa<br><span style="font-size:0.9em; color:#666;">Acajutla, Sonsonate</span></li>
                 <li><strong>🎭 Temática</strong> Lilo & Stitch</li>
                 <li><strong>👚 Dress Code</strong> Ropa playera o floral.</li>
             </ul>
@@ -314,7 +308,7 @@
                 <h3 class="card-title">📍 Ubicación</h3>
                 <p>Aca te dejamos la ubicacion</p>
                 <a href="https://maps.app.goo.gl/W7rz8CH95HfYZyyNA?g_st=ic" target="_blank" class="btn btn-map">Ver en Google Maps 🗺️</a>
-               
+              
             </section>
 
             <section class="card rsvp-card">
@@ -335,38 +329,37 @@
     </div>
     
     <footer style="text-align: center; font-size: 0.7em; color: #888; padding-bottom: 80px; position: relative; z-index: 10;">
-       Jimena Ramos ®️
+       Jimena Ramos ®
     </footer>
 
-    <div id="audioControls"><span>🎶</span> Musicon OFF</div>
+    <div id="audioControls"><span>🎶</span> Tocar música</div>
 
     <script>
         
-      
-
+       
         function sendToWhatsapp() {
             const name = document.getElementById('guestName').value;
             const select = document.getElementById('guestCount');
             const count = select.options[select.selectedIndex].text;
             if(name.trim() === "") { alert("🌺 ¡Por favor escribe tu nombre!"); return; }
-            const message = ¡Aloha! 🌺 Soy *${name}*. Quiero confirmar mi asistencia al cumple de Gali ${count}. ¡Nos vemos ahí!;
-            const url = https://wa.me/${50370499761}?text=${encodeURIComponent(message)};
+            const message = "¡Aloha!  Soy *" + name + "*. Quiero confirmar mi asistencia al cumple de Gali " + count + ". ¡Nos vemos ahí!";
+            const url = `https://wa.me/${70799761}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
 
         const audio = document.getElementById('fiestaAudio');
         const btn = document.getElementById('audioControls');
         let isPlaying = false;
-        document.addEventListener('click', function startAudio() {
-            audio.play().then(() => {
-                isPlaying = true; btn.innerHTML = '<span>🔊</span> Música ON'; document.removeEventListener('click', startAudio);
-            }).catch(err => console.log("Autoplay bloqueado"));
-        }, { once: true });
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (isPlaying) { audio.pause(); isPlaying = false; btn.innerHTML = '<span>🔇</span> Música OFF'; btn.style.opacity = "0.7";
-            } else { audio.play(); isPlaying = true; btn.innerHTML = '<span>🔊</span> Musicon ON'; btn.style.opacity = "1"; }
+        document.addEventListener('click', () => {
+    if (!isPlaying) {
+        audio.play().then(() => {
+            isPlaying = true;
+            btn.innerHTML = '<span>🔊</span> Música ON';
+        }).catch(() => {
+            alert("Toca el botón de música 🎶");
         });
+    }
+});
     </script>
 </body>
 </html>
