@@ -3,85 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Aloha! Invitación Galilea</title>
+    <title>¡Aloha! Invitación Cumpleaños de GALILEA RAMOS</title>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --purple: #a855f7; --pink: #f472b6; --bg: #fff0f6; }
-        body { font-family: 'Quicksand', sans-serif; margin: 0; background: var(--bg); text-align: center; color: #4b2e2e; }
-        .header { background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%); color: white; padding: 50px 20px 80px; position: relative; }
-        .title { font-family: 'Lobster', cursive; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-        .name { font-family: 'Lobster', cursive; font-size: 4.2rem; margin: 10px 0; line-height: 1; }
-        .photo-circle { width: 210px; height: 210px; margin: 20px auto; border-radius: 50%; border: 6px solid white; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-        .photo-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .card { background: white; max-width: 500px; margin: -40px auto 30px; padding: 30px; border-radius: 25px; border: 2px dashed #f9a8d4; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; z-index: 2; width: 85%; }
-        .btn { display: block; width: 100%; padding: 16px; background: linear-gradient(90deg, #f472b6, #c084fc); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border: none; cursor: pointer; margin-top: 15px; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(244, 114, 182, 0.3); }
-        .input { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #ddd; border-radius: 12px; box-sizing: border-box; font-size: 1rem; }
-        #audioBtn { position: fixed; bottom: 20px; right: 20px; background: #222; color: white; padding: 12px 22px; border-radius: 50px; cursor: pointer; z-index: 1000; border: 2px solid white; font-weight: bold; }
+        :root {
+              --blue-header: #a855f7;
+              --blue-light: #d8b4fe;
+              --coral: #f472b6;
+              --text-dark: #4b2e2e;
+              --card-border: #f9a8d4;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #fff0f6;
+            position: relative;
+            overflow-x: hidden; 
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.85); 
+            z-index: -1;
+        }
+
+        .main-header {
+            background: linear-gradient(180deg, #c084fc 0%, #f472b6 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0 100px 0;
+            position: relative;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-title {
+            font-family: 'Lobster', cursive;
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .name-title {
+            font-family: 'Lobster', cursive;
+            font-size: 4em;
+            margin: 10px 0;
+            line-height: 1.1;
+        }
+
+        .photo-wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cards-container {
+            max-width: 1000px;
+            margin: -50px auto 50px auto; 
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff7fb;
+            border-radius: 25px;
+            border: 2px dashed var(--card-border); 
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .card-title {
+            color: var(--blue-header);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .details-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .details-list li::before {
+            content: '🌸'; 
+            position: absolute;
+            left: 0;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #f472b6, #c084fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        .btn-map { background: var(--blue-header); }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        #audioControls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #222;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1000;
+            border: 2px solid white;
+        }
+
+        @media (min-width: 768px) {
+            .cards-container { grid-template-columns: 1.2fr 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <audio id="musicaFondo" loop>
+    <audio id="fiestaAudio" loop>
         <source src="musica.mp3.mpeg" type="audio/mpeg">
     </audio>
 
-    <div class="header">
-        <h1 class="title">¡Aloha!</h1>
-        <p style="letter-spacing: 2px; font-weight: 700;">TE ESPERAMOS EN EL CUMPLE DE</p>
-        <h1 class="name">Galilea Ramos</h1>
-        <div class="photo-circle">
-            <img src="gali.png.png" alt="Galilea">
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="main-title">¡Aloha!</h1>
+            <h2 style="font-size: 1.2em; letter-spacing: 2px;">CUMPLEAÑOS DE</h2>
+            <h1 class="name-title">Galilea Ramos</h1>
+            <p>CELEBRAMOS 4 AÑOS</p>
+            
+            <div class="photo-wrapper">
+                <img src="gali.png" alt="Galilea" class="profile-pic">
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="card">
-        <h3 style="color: var(--purple); margin-top: 0;">🌺 ¡Celebremos juntos!</h3>
-        <p style="font-size: 1.1rem; margin: 10px 0;">📅 <b>Sábado 28 de Marzo</b></p>
-        <p style="font-size: 1.1rem; margin: 10px 0;">⏰ <b>1:30 PM</b></p>
-        <p style="font-size: 1.1rem; margin: 10px 0;">📍 <b>Nuestra casita, Acajutla</b></p>
-        <p style="font-size: 0.9rem; color: #777;">Temática: Lilo & Stitch</p>
-        <a href="https://maps.google.com" target="_blank" class="btn" style="background: var(--purple)">Ver Ubicación en Mapa 🗺️</a>
-    </div>
+    <main class="cards-container">
+        <section class="card">
+            <h3 class="card-title">🌺 Detalles del Evento</h3>
+            <ul class="details-list">
+                <li><strong>📅 Fecha:</strong> Sábado 28 de marzo</li>
+                <li><strong>⏰ Hora:</strong> 1:30 PM</li>
+                <li><strong>🏖️ Lugar:</strong> Nuestra casita, Acajutla</li>
+                <li><strong>🎭 Temática:</strong> Lilo & Stitch</li>
+                <li><strong>👚 Vestimenta:</strong> Ropa playera / floral</li>
+            </ul>
+        </section>
 
-    <div class="card">
-        <h3 style="color: var(--pink); margin-top: 0;">✍️ Confirma tu asistencia</h3>
-        <input type="text" id="nombre" placeholder="Escribe tu nombre aquí..." class="input">
-        <button onclick="confirmarWA()" class="btn">Confirmar por WhatsApp 💬</button>
-    </div>
+        <div class="right-column">
+            <section class="card">
+                <h3 class="card-title">📍 Ubicación</h3>
+                <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn btn-map">Ver en Google Maps 🗺️</a>
+            </section>
 
-    <div id="audioBtn">🎶 Música OFF</div>
+            <section class="card">
+                <h3 class="card-title">✍️ Confirmar Asistencia</h3>
+                <input type="text" id="guestName" placeholder="Tu Nombre" class="form-input">
+                <select id="guestCount" class="form-select">
+                    <option value="1">Asistiré solo yo</option>
+                    <option value="2">Vamos 2 personas</option>
+                    <option value="3">Vamos 3 personas</option>
+                    <option value="4">Vamos 4 personas</option>
+                </select>
+                <button onclick="sendToWhatsapp()" class="btn">Confirmar por WhatsApp 💬</button>
+            </section>
+        </div>
+    </main>
+
+    <div id="audioControls">🎶 Música OFF</div>
 
     <script>
-        const audio = document.getElementById('musicaFondo');
-        const btn = document.getElementById('audioBtn');
-        let iniciado = false;
-
-        function confirmarWA() {
-            const nom = document.getElementById('nombre').value;
-            if(!nom) { alert("Por favor, dinos quién eres para anotarte 🌸"); return; }
-            const texto = encodeURIComponent(¡Aloha! Soy ${nom}. Confirmo mi asistencia al cumple de Gali. ¡Nos vemos pronto! 🌺✨);
-            window.open(https://wa.me/50377426707?text=${texto}, '_blank');
+        // FUNCIÓN DE WHATSAPP CORREGIDA CON TU NÚMERO
+        function sendToWhatsapp() {
+            const name = document.getElementById('guestName').value;
+            const count = document.getElementById('guestCount').value;
+            const number = "50377426707"; 
+            if(name.trim() === "") { alert("🌺 ¡Por favor escribe tu nombre!"); return; }
+            const message = ¡Aloha! 🌺 Soy *${name}*. Confirmo mi asistencia (${count} personas) al cumple de Gali. ¡Nos vemos!;
+            const url = https://wa.me/${number}?text=${encodeURIComponent(message)};
+            window.open(url, '_blank');
         }
 
-        // Inicia música al primer toque en la pantalla
-        document.addEventListener('click', () => {
-            if(!iniciado) {
-                audio.play().then(() => { 
-                    btn.innerHTML = "🔊 Música ON"; 
-                    iniciado = true; 
-                }).catch(e => console.log("Audio pendiente"));
-            }
+        const audio = document.getElementById('fiestaAudio');
+        const btn = document.getElementById('audioControls');
+        let isPlaying = false;
+
+        // ESTO HACE QUE SUENE AL TOCAR CUALQUIER PARTE
+        document.addEventListener('click', function start() {
+            audio.play().then(() => {
+                isPlaying = true; 
+                btn.innerHTML = '🔊 Música ON';
+            }).catch(() => console.log("Esperando toque..."));
+            document.removeEventListener('click', start);
         }, { once: true });
 
-        // Control manual del botón
         btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (audio.paused) { 
-                audio.play(); 
-                btn.innerHTML = "🔊 Música ON"; 
-            } else { 
-                audio.pause(); 
-                btn.innerHTML = "🔇 Música OFF"; 
+            if (isPlaying) {
+                audio.pause(); isPlaying = false; btn.innerHTML = '🔇 Música OFF';
+            } else {
+                audio.play(); isPlaying = true; btn.innerHTML = '🔊 Música ON';
             }
         });
     </script>
